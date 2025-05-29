@@ -1,0 +1,45 @@
+bi-weekly plan:
+
+
+Friday: 5k run
+        college work/python
+
+Saturday: BJJ          
+          college work/web technologies
+
+Sunday:  
+         college work/python
+         cheat meal
+
+
+Monday : 3k run
+         college work/web technologies
+
+Tuesday: upperbody workout
+         college work/python
+
+Wednesday: 5k run
+
+Thursday: upperbody workout
+          college work/python
+
+Friday: 5k run
+
+Saturday: bjj
+          college work/web technologies
+
+Sunday: college work/python
+
+
+
+Week	
+3	5K (I: 4 × 400m @6:00/km)	5K (E)	8K (E)
+4	5K (T)	8K (E)	8K (E)
+5	5K (I: 4 × 800m @6:15/km)	8K (E)	10K (E)
+6	7K (T)	7K (E)	12K (E)
+7	7K (E)	7K (E)	14K (E)
+8	7K (T)	7K (E)	16K (E)
+9	7K (I: 3 × 1K @6:30/km)	7K (E)	18K (E)
+10	7K (T)	7K (E)	20K (E)
+11	7K (RP)	7K (E)	10K (E)
+12	7K (E)	7K (RP)	12K (E)
