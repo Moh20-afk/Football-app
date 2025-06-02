@@ -40,21 +40,69 @@ def register_user(username, password_hash):
         conn.close()
 
 # Routes
-@app.route('/')
-def index():
-    return render_template('index.html')
 
-@app.route('/signup', methods=['POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    username = request.form['username']
-    password = request.form['password']
-    password_hash = hash_password(password)
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
 
-    try:
-        register_user(username, password_hash)
-        return "Signup successful!"
-    except Exception as e:
-        return f"Error during signup: {e}"
+        if not username or not password:
+            return "Missing username or password", 400
+
+        password_hash = hash_password(password)
+
+        try:
+            register_user(username, password_hash)
+            return "Signup successful!"
+        except Exception as e:
+            return f"Error during signup: {e}", 500
+    else:
+        # If it's a GET request, just render the form
+        return render_template('signup.html')
+
+        
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if not username or not password:
+            return "Missing username or password", 400
+
+        password_hash = hash_password(password)
+
+        try:
+            conn = mariadb.connect(
+                user="root",
+                password="password",
+                host="127.0.0.1",
+                port=3306,
+                database="user_details"
+            )
+            cursor = conn.cursor()
+
+            cursor.callproc("user_login", (username, password_hash))
+
+            # Now fetch the result directly
+            result = cursor.fetchall()
+            if result:
+                return f"Welcome, {result[0][1]}!"
+            else:
+                return "Invalid username or password", 401
+
+        except mariadb.Error as e:
+            return f"Database error: {e}", 500
+        finally:
+            cursor.close()
+            conn.close()
+    else:
+        return render_template('login.html')
+
+
+
+
 
 
 if __name__ == '__main__':
