@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Handle login routes
+RewriteRule ^login/?$ login.php [L]
+RewriteRule ^signup/?$ login.php [L]
+
+# Redirect root to login
+RewriteRule ^$ /login [R=302,L]
+
+# Handle static files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ login.php [L] 
