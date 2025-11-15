@@ -16,3 +16,18 @@ function showUsername() {
     welcome.classList.remove("fade"); // reset for next time
   }, 7000);
 }
+
+function showSignup() {
+    document.getElementById('login-form').classList.add('hidden');
+    document.getElementById('signup-form').classList.remove('hidden');
+}
+
+ function showLogin() {
+    document.getElementById('signup-form').classList.add('hidden');
+    document.getElementById('login-form').classList.remove('hidden');
+}
+
+        // Auto-switch form depending on URL
+ if (window.location.pathname.includes('signup')) {
+    showSignup();
+}

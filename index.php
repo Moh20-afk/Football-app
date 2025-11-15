@@ -191,12 +191,12 @@ if ($path === 'signup') {
             </div>';
         }
         
-        include '../Front-End/Signup.html';
+        include 'Signup.html';
     }
 } elseif ($path === 'dashboard') {
     // Handle dashboard page
     header('Content-Type: text/html');
-    include '../Front-End/dashboard.html';
+    include 'dashboard.html';
 } elseif ($path === 'login') {
     if ($request_method === 'POST') {
         // Handle login POST request
@@ -255,7 +255,7 @@ if ($path === 'signup') {
             </div>';
         }
         
-        include '../Front-End/Login.html';
+        include 'StartPage.html';
     }
 } else {
     // Default route - redirect to login
